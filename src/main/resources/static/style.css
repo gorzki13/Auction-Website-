@@ -1,0 +1,40 @@
+body{
+
+}
+
+
+table, th, td{
+    border:1px solid black;
+    MARGIN: auto;
+    text-align: center;
+
+}
+h1{
+    text-align: center;
+    color:blue;
+    font-family: 'Century Gothic';
+
+}
+#add{
+    text-align: center;
+    color:yellow;
+}
+header{
+    text-align: center;
+}
+#form1{
+    margin: auto;
+    text-align: center;
+
+}
+.footer{
+
+
+    padding: 10px 10px 0px 10px;
+    bottom: 0;
+    width: auto;
+    height: auto;
+    background: darkgray;
+    text-align: center;
+
+}
