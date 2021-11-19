@@ -23,6 +23,7 @@ import java.util.Optional;
 
 @RequestMapping("/userlist")
 public class addObjController {
+   //testowy kom
     @Autowired
     Userrepository ur;
     @Autowired
