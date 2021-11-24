@@ -6,6 +6,7 @@ import com.example.jgspringproject.models.Userid;
 import com.example.jgspringproject.repositories.Categoryrepository;
 import com.example.jgspringproject.repositories.Userrepository;
 import com.example.jgspringproject.validators.namevalidator;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +21,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-
+@Log4j2
 @RequestMapping("/userlist")
 public class addObjController {
    //testowy kom
@@ -29,20 +30,20 @@ public class addObjController {
     @Autowired
     Categoryrepository cr;
     @GetMapping(path={"/addForm","/editForm"})
-    public String showform(Model m, @RequestParam(value = "id") Optional<Integer> id)throws Exception{
+    public String showform(Model m, @RequestParam(value = "id",defaultValue = "-1",required = false) int id)throws Exception{
 
-        if(id.isPresent()) {
-            int userId=id.get();
-            m.addAttribute("list", ur.findById(userId));
+        if(id!=-1) {
+
+            m.addAttribute("list", ur.findById(id));
 
        System.out.println("a");
 
         } else {
-            Userid u1=new Userid (UserList.getUid(),"","",null,0,null,null,0);
+            Userid u1=new Userid ();
             m.addAttribute("list",u1);
 
             System.out.println("b");
-            UserList.setUid(UserList.getUid()+1);
+
 
 
         }

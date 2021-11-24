@@ -35,11 +35,11 @@
     <input type="text" th:field="*{itemname}"/> <p style="color:red" th:if="${#fields.hasErrors('itemname')}" th:each="err : ${#fields.errors('itemname')}" th:text="${err}"></p>
         </td> </tr><tr><td>
 <p>kategoria</p>
-    <select th:field="*{cd.id}">
-    <option th:each="cat : ${kategorie}"
-            th:value="${cat.id}"
-            th:text=" ${cat.kategoria}"
-    />
+            <label>Kategoria Aukcji:</label>
+            <div th:each="kategoria:${kategorie}">
+                <input type="checkbox" th:field="*{cd}" th:value="${kategoria.id}" th:id="${kategoria}">
+                <label th:for="${kategoria}" th:text="${kategoria.kategoria}" ></label>
+            </div>
 </select><br><br>
         </td> </tr><tr><td>
     <input class="btn btn-success" type="submit" value=" DODAJ "/><br><br><button class="btn btn-danger"><a th:href="@{/userlist}">ANULUJ</a></button>

@@ -1,7 +1,15 @@
 package com.example.jgspringproject.models;
 
-import javax.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+import javax.persistence.*;
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "CategoryData")
 
@@ -21,9 +29,6 @@ public class CategoryData {
     }
 
 
-    public CategoryData() {
-
-    }
     public CategoryData(String kategoria ,int id) {
         this.kategoria = kategoria;
     this.id=id;

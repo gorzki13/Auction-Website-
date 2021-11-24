@@ -34,9 +34,9 @@ private Categoryrepository cRepository;
                 cdl.add(cd3);
                 cRepository.saveAll(cdl);
 
-                Userid u1=new Userid("Andrzej","Kowalski", LocalDate.now(),800.20f,"Telewizor",cd);
-                Userid u2=new Userid("Tadeusz","Nowak", LocalDate.now(),200.99f,"Kosiarka",cd2);
-                Userid u3=new Userid("Damian","JAKISTAM", LocalDate.now(),20.99f,"Wedka",cd3);
+                Userid u1=new Userid(1,"Andrzej","Kowalski", LocalDate.now(),800.20f,"Telewizor");
+                Userid u2=new Userid(2,"Tadeusz","Nowak", LocalDate.now(),200.99f,"Kosiarka");
+                Userid u3=new Userid(3,"Damian","JAKISTAM", LocalDate.now(),20.99f,"Wedka");
                 ul.add(u1);
                 ul.add(u2);
                 ul.add(u3);

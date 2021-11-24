@@ -1,5 +1,11 @@
 package com.example.jgspringproject.models;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -29,13 +35,9 @@ static {
 
    list = new ArrayList<>();
 
-    Userid u1=new Userid(uid++,"aa","bb",LocalDate.now(),50.25f,"wiertarka","narzedzia",1);
-    Userid u2=new Userid(uid++,"aa","bb", LocalDate.now(),50,"wiertarka","narzedzia",1);
-    Userid u3=new Userid(uid++,"aa","bb",LocalDate.now(),50,"wiertarka","narzedzia",1);
 
-    list.add(u1);
-    list.add(u2);
-    list.add(u3);
+
+
 }
 
 }
