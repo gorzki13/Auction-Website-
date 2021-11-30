@@ -21,6 +21,16 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@NamedQuery(name = "Userid.findByName",
+        query = "select u from Userid u where u.name like ?1")
+@NamedQuery(name = "Userid.findBySurname",
+        query = "select u from Userid u where u.surname like ?1")
+@NamedQuery(name = "Userid.findByDate",
+        query = "select u from Userid u where u.date = ?1")
+@NamedQuery(name = "Userid.findByWallet",
+        query = "select u from Userid u where u.wallet = ?1")
+@NamedQuery(name = "Userid.findByitemname",
+        query = "select u from Userid u where u.itemname like ?1")
 @Table(name = "Userid")
 
 

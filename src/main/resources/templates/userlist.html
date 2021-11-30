@@ -13,6 +13,14 @@
     <form th:method="GET" th:action="@{/znajdz}">
         <input type="text" name="phrase" th:placeholder="Wyszukaj" />
         <input type="submit" value="Wyslij">
+        <label for="filter">Filtr:</label>
+        <select name="filter" id="filter">
+            <option value="0">Imie</option>
+            <option value="1">Nazwisko</option>
+            <option value="2">Data</option>
+            <option value="3">Cena</option>
+            <option value="4">Nazwa przedmiotu</option>
+        </select>
     </form>
 </div>
 <span th:if="${#lists.isEmpty(list)}">List is empty</span>
