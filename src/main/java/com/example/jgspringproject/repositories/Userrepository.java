@@ -22,8 +22,8 @@ List<Userid>findByName(String name);
     List<Userid>findBySurname2(String surname);
     @Query("select u from Userid u where u.date = ?1")
     List<Userid>findByDate2(LocalDate date);
-    @Query("select u from Userid u where u.wallet = ?1")
-    List<Userid>findByWallet2(float wallet);
+    @Query("select u from Userid u where u.wallet >= ?1 and u.wallet <= ?2")
+    List<Userid>findByWallet2(float min,float max);
     @Query("select u from Userid u where u.itemname like ?1")
     List<Userid>findByitemname2(String itemname);
 

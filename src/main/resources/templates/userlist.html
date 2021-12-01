@@ -21,6 +21,19 @@
             <option value="3">Cena</option>
             <option value="4">Nazwa przedmiotu</option>
         </select>
+        <label for="filter">Kategoria:</label>
+        <select name="kategoria" id="category">
+            <option value="0">DOM</option>
+            <option value="1">HOBBY</option>
+            <option value="2">OGROD</option>
+        </select>
+
+        <label for="filter">Cena minimalna:</label>
+        <input type="text" name="phrase2" value="1" />
+        <label for="filter">Cena maksymalna:</label>
+        <input type="text" name="phrase3" value="2000" />
+
+
     </form>
 </div>
 <span th:if="${#lists.isEmpty(list)}">List is empty</span>
