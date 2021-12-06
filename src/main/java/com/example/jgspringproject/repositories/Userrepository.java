@@ -26,5 +26,4 @@ List<Userid>findByName(String name);
     List<Userid>findByWallet2(float min,float max);
     @Query("select u from Userid u where u.itemname like ?1")
     List<Userid>findByitemname2(String itemname);
-
 }
