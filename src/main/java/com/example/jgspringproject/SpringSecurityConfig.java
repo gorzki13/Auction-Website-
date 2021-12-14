@@ -1,5 +1,6 @@
 package com.example.jgspringproject;
 
+import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -7,6 +8,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 
 @EnableWebSecurity
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -26,10 +28,14 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http
         .authorizeRequests()
-                .antMatchers("/templates/userlist","/static/**", "/signup").permitAll()
-                .antMatchers("/templates/editForm").hasRole("ADMIN").anyRequest().authenticated();
+                .antMatchers("/userlist**","/","/stylecss/**", "/signup").permitAll()
+                .antMatchers("/userlist/editForm**").hasRole("ADMIN").anyRequest().authenticated();
+
         http.logout().permitAll();
         http.formLogin().loginPage("/login").permitAll();
+        http.exceptionHandling().accessDeniedPage("/error403");
+
+
 
 
     }
