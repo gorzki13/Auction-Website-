@@ -9,7 +9,7 @@
 <body>
 <div th:replace="~{fragments :: nav(param1='add')}"/>
 <br><br><br><br>
-<form th:method="POST" th:object="${list}" th:action="@{/editForm(id=${id})}" >
+<form th:method="POST" th:object="${list}"  >
     <div id="form1" class="form-group">
         <table class="table table-dark">
    <tr>
