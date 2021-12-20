@@ -58,25 +58,27 @@ private Categoryrepository cRepository;
 
                 uRepository.saveAll(ul);
             }
-            Role roleUser = rolerepository.save(new Role(Role.Types.ROLE_USER));
-            Role roleAdmin = rolerepository.save(new Role(Role.Types.ROLE_ADMIN));
+            if(rolerepository.findAll().isEmpty()&& Userloginrepository.findAll().isEmpty()) {
+                Role roleUser = rolerepository.save(new Role(Role.Types.ROLE_USER));
+                Role roleAdmin = rolerepository.save(new Role(Role.Types.ROLE_ADMIN));
 
-            User user = new User("user", true);
-            user.setRoles(new HashSet<>(Arrays.asList(roleUser)));
-            user.setPassword(passwordEncoder.encode("user"));
+                User user = new User("user", true);
+                user.setRoles(new HashSet<>(Arrays.asList(roleUser)));
+                user.setPassword(passwordEncoder.encode("user"));
 
-            User admin = new User("admin", true);
-            admin.setRoles(new HashSet<>(Arrays.asList(roleAdmin)));
-            admin.setPassword(passwordEncoder.encode("admin"));
+                User admin = new User("admin", true);
+                admin.setRoles(new HashSet<>(Arrays.asList(roleAdmin)));
+                admin.setPassword(passwordEncoder.encode("admin"));
 
-            User test = new User("superuser", true);
-            test.setRoles(new HashSet<>(Arrays.asList(roleAdmin, roleUser)));
-            test.setPassword(passwordEncoder.encode("superuser "));
+                User test = new User("superuser", true);
+                test.setRoles(new HashSet<>(Arrays.asList(roleAdmin, roleUser)));
+                test.setPassword(passwordEncoder.encode("superuser"));
 
-            Userloginrepository.save(user);
-            Userloginrepository.save(admin);
-            Userloginrepository.save(test);
 
+                Userloginrepository.save(user);
+                Userloginrepository.save(admin);
+                Userloginrepository.save(test);
+            }
 
 
 
