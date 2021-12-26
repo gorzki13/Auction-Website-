@@ -36,7 +36,7 @@ public class User implements UserDetails {
     private String password;
     @Transient//właściwość nie będzie odzwierciedlona w db
     private String passwordConfirm;
-    private boolean enabled = false;//czy konto jest aktywne
+    private boolean enabled = true;//czy konto jest aktywne
 
 
     @ManyToMany(fetch =FetchType.EAGER)
