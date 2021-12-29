@@ -40,7 +40,7 @@ private Categoryrepository cRepository;
         return () -> {//afterPropertiesSet
             List<CategoryData> cdl = new ArrayList<CategoryData>();
             List<Userid> ul = new ArrayList<Userid>();
-            if(uRepository.findAll().isEmpty()) {
+            if(cRepository.findAll().isEmpty()) {
                 CategoryData cd=new CategoryData("DOM");
                 CategoryData cd2=new CategoryData("OGROD");
                 CategoryData cd3=new CategoryData("HOBBY");
@@ -49,12 +49,10 @@ private Categoryrepository cRepository;
                 cdl.add(cd3);
                 cRepository.saveAll(cdl);
 
-                Userid u1=new Userid(1,"Andrzej","Kowalski", LocalDate.now(),800.20f,"Telewizor");
-                Userid u2=new Userid(2,"Tadeusz","Nowak", LocalDate.now(),200.99f,"Kosiarka");
-                Userid u3=new Userid(3,"Damian","JAKISTAM", LocalDate.now(),20.99f,"Wedka");
+                Userid u1=new Userid(1,"Andrzej","Kowalski", LocalDate.now(),800.20f,"Telewizor","","admin","bardzo dobry model polecam");
+
                 ul.add(u1);
-                ul.add(u2);
-                ul.add(u3);
+
 
                 uRepository.saveAll(ul);
             }

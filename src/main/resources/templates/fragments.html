@@ -34,6 +34,9 @@
                         <li th:classappend="${param1 eq 'list'}?'active'" class="nav-item" style="padding-left: 15px">
                             <a class="nav-link" th:href="@{/userlist}">Lista aukcji</a>
                         </li>
+                        <li  sec:authorize=" isAuthenticated()" th:classappend="${param1 eq 'items'}?'active'" class="nav-item" style="padding-left: 15px">
+                            <a class="nav-link" th:href="@{/myauction}">Moje przedmioty</a>
+                        </li>
                         <li th:classappend="${param1 eq 'add'}?'active'" class="nav-item" style="padding-left: 15px">
                             <a class="nav-link" th:href="@{userlist/editForm}">dodaj przedmiot</a>
                         </li>
@@ -46,7 +49,7 @@
                         </form>
                        <div sec:authorize=" isAuthenticated()">
 
-                        <h1> Witaj <span sec:authentication="name"/></span> !</h1>
+                        <h1> Witaj <span sec:authentication="name"/></span> !</h1> 
                        </div>
 
                     </ul>
