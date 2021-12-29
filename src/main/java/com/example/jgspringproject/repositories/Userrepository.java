@@ -15,7 +15,7 @@ List<Userid>findByName(String name);
     List<Userid>findByDate(LocalDate date);
     List<Userid>findByWallet(float wallet);
     List<Userid>findByitemname(String itemname);
-
+ Userid findByid(int id);
     @Query("select u from Userid u where u.name like ?1")
     List<Userid>findByName2(String name);
     @Query("select u from Userid u where u.surname like ?1")

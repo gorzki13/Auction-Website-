@@ -12,6 +12,8 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
@@ -56,14 +58,25 @@ private int id;
     private String itemname;
     @ManyToMany(fetch = FetchType.LAZY)
     private Set<CategoryData> cd;
+    @Column(name = "photo", nullable = true)
+    private String photo;
 
-    public Userid(int id, String name, String surname, LocalDate date, float wallet, String itemname) {
+    public String getImagePath(){
+        if(photo==null)
+            return null;
+        String path ="/"+id+"/"+photo;
+        Path p= Paths.get(path);
+        return p.toString();
+
+    }
+    public Userid(int id, String name, String surname, LocalDate date, float wallet, String itemname,String photo) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.date = date;
         this.wallet = wallet;
         this.itemname = itemname;
+        this.photo=photo;
         this.cd=new HashSet<>();
     }
 

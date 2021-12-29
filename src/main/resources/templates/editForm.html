@@ -9,7 +9,7 @@
 <body>
 <div th:replace="~{fragments :: nav(param1='add')}"/>
 <br><br><br><br>
-<form th:method="POST" th:object="${list}"  >
+<form enctype="multipart/form-data" th:method="POST" th:object="${list}"  >
     <div id="form1" class="form-group">
         <table class="table table-dark">
    <tr>
@@ -34,7 +34,9 @@
     <p>nazwa przedmiotu</p>
     <input type="text" th:field="*{itemname}"/> <p style="color:red" th:if="${#fields.hasErrors('itemname')}" th:each="err : ${#fields.errors('itemname')}" th:text="${err}"></p>
         </td> </tr><tr><td>
-<p>kategoria</p>
+            <input type="file" name="fileImage" id="fileImage" accept=".gif,.png,.jpeg,.jpg">
+        </td> </tr><tr><td>
+            <p>kategoria</p>
             <label>Kategoria Aukcji:</label>
             <div th:each="kategoria:${kategorie}">
                 <input type="checkbox" th:field="*{cd}" th:value="${kategoria.id}" th:id="${kategoria}">

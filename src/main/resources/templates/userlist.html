@@ -9,29 +9,27 @@
 <body>
 <div th:replace="~{fragments :: nav(param1='list')}"/>
 <div class="text-end w-100">
-  <h3 sec:authorize="hasRole('ADMIN')">znajdz przedmiot!</h3>
-    <form sec:authorize="hasRole('ADMIN')" th:method="GET" th:action="@{/znajdz}">
+  <h3 >znajdz przedmiot!</h3>
+    <form  th:method="GET" th:action="@{/znajdz}">
         <input type="text" name="phrase" th:placeholder="Wyszukaj" />
         <input type="submit" value="Wyslij">
-        <label sec:authorize="hasRole('ADMIN')" for="filter">Filtr:</label>
-        <select sec:authorize="hasRole('ADMIN')" name="filter" id="filter">
-            <option value="0">Imie</option>
-            <option value="1">Nazwisko</option>
-            <option value="2">Data</option>
+        <label  for="filter">Filtr:</label>
+        <select  name="filter" id="filter">
+
             <option value="3">Cena</option>
             <option value="4">Nazwa przedmiotu</option>
         </select>
-        <label sec:authorize="hasRole('ADMIN')" for="filter">Kategoria:</label>
-        <select sec:authorize="hasRole('ADMIN')" name="kategoria" id="category">
+        <label for="filter">Kategoria:</label>
+        <select  name="kategoria" id="category">
             <option value="0">DOM</option>
             <option value="1">HOBBY</option>
             <option value="2">OGROD</option>
         </select>
 
-        <label sec:authorize="hasRole('ADMIN')" for="filter">Cena minimalna:</label>
-        <input sec:authorize="hasRole('ADMIN')" type="text" name="phrase2" value="1" />
-        <label sec:authorize="hasRole('ADMIN')" for="filter">Cena maksymalna:</label>
-        <input sec:authorize="hasRole('ADMIN')" type="text" name="phrase3" value="2000" />
+        <label  for="filter">Cena minimalna:</label>
+        <input  type="text" name="phrase2" value="1" />
+        <label  for="filter">Cena maksymalna:</label>
+        <input  type="text" name="phrase3" value="2000" />
 
 
     </form>
@@ -40,23 +38,25 @@
 
 <table class="table table-dark" th:unless="${#lists.isEmpty(list)}">
     <tr>
-        <th>id</th>
-        <th>imie</th>
-        <th>nazwisko</th>
-        <th>data konca akcji</th>
-        <th>aktualna cena</th>
         <th>przedmiot </th>
+        <th>imie</th>
+
+
+        <th>Cena</th>
+
 
        <th sec:authorize="hasRole('ADMIN')">EDYTUJ DANE</th>
     </tr>
     <tr th:each="u:${list}">
-        <td th:text="${u.id}"></td>
-        <td th:text="${u.name}"></td>
-        <td th:text="${u.surname}"></td>
-        <td> <p th:text="${#temporals.format(u.date, 'dd-MM-yyyy HH:mm')}"></p></td>
-        <td th:text="${#numbers.formatDecimal(u.Wallet, 0, 'COMMA', 2, 'POINT')}"></td>
         <td th:text="${u.Itemname}"></td>
+        <td th:text="${u.name}"></td>
 
+
+        <td th:text="${#numbers.formatDecimal(u.Wallet, 0, 'COMMA', 2, 'POINT')}"></td>
+
+<td>
+    <a th:href="@{sellform(id=*{u.id})}">Kup teraz</a>
+</td>
       <td sec:authorize="hasRole('ADMIN')"> <a th:href="@{userlist/editForm(id=*{u.id})}">edytuj</a> </td>
 
     </tr>
