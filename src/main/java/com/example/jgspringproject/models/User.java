@@ -34,6 +34,9 @@ public class User implements UserDetails {
     private String username;
     //@Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,20}$")
     private String password;
+
+     private String email;
+
     @Transient//właściwość nie będzie odzwierciedlona w db
     private String passwordConfirm;
     private boolean enabled = true;//czy konto jest aktywne

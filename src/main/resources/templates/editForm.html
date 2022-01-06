@@ -47,6 +47,11 @@
     <p>nazwa przedmiotu</p>
     <input type="text" th:field="*{itemname}"/> <p style="color:red" th:if="${#fields.hasErrors('itemname')}" th:each="err : ${#fields.errors('itemname')}" th:text="${err}"></p>
         </td> </tr><tr><td>
+        </td>  </tr><tr><td>
+            <p>Numer konta</p>
+            <input type="text" th:field="*{accountNumber}"/> <p style="color:red" th:if="${#fields.hasErrors('itemname')}" th:each="err : ${#fields.errors('itemname')}"th:text="${err}"></p>
+        </td> </tr><tr><td>
+            <p>Dodaj zdjęcie</p>
             <input type="file" name="fileImage" id="fileImage" accept=".gif,.png,.jpeg,.jpg">
         </td> </tr><tr><td>
             <p>kategoria</p>

@@ -49,7 +49,7 @@ private Categoryrepository cRepository;
                 cdl.add(cd3);
                 cRepository.saveAll(cdl);
 
-                Userid u1=new Userid(1,"Andrzej","Kowalski", LocalDate.now(),800.20f,"Telewizor","","admin","bardzo dobry model polecam");
+                Userid u1=new Userid(1,"Andrzej","Kowalski", LocalDate.now(),800.20f,"Telewizor","","admin","bardzo dobry model polecam","123456789");
 
                 ul.add(u1);
 

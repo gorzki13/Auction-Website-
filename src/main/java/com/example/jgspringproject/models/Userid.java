@@ -60,7 +60,8 @@ private int id;
     @NotEmpty
     @Column(name = "itemname", nullable = false)
     private String itemname;
-
+    @Column(name = "accountNumber", nullable = true)
+    private String accountNumber;
     @Column(name = "description", nullable = false)
     private String desctription;
     @ManyToMany(fetch = FetchType.LAZY)
@@ -79,7 +80,8 @@ private int id;
         return p.toString();
 
     }
-    public Userid(int id, String name, String surname, LocalDate date, float wallet, String itemname,String photo,String SellerID,String desctription) {
+    public Userid(int id, String name, String surname, LocalDate date, float wallet, String itemname,String photo,String SellerID,String desctription,String accountNumber) {
+       this.accountNumber=accountNumber;
         this.id = id;
         this.name = name;
         this.surname = surname;
