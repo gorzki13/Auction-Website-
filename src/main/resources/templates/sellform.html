@@ -9,9 +9,10 @@
 </head>
 <body>
 <div th:replace="~{fragments :: nav(param1='login')}"/>
-<h1> <span th:text="${dane.itemname}"></span><br></h1>
 
+<br><Br>
 <div class="center">
+    <h1> <span th:text="${dane.itemname}"></span><br></h1>
     <H5 style="color:red;"  sec:authorize=" !isAuthenticated()">ABY MIEĆ MOŻLIWOŚĆ KUPOWANIA PRZEDMIOTÓW ZALOGUJ SIĘ !</H5>
 <img th:src="@{${dane.ImagePath}}"><BR>
 
@@ -36,6 +37,7 @@
     <a sec:authorize=" isAuthenticated()" th:href="@{buydetails(id=*{dane.id})}">Kup teraz</a>
 
 </div>
+<br><br><br>
 <div th:replace="~{fragments :: footer}"/>
 </body>
 </html>

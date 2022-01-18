@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5" >
+<head>
+    <div th:replace="~{fragments :: header-css}"/>
+
+</head>
+<body>
+<div>
+    <div th:replace="~{fragments :: nav(param1='forum')}"/>
+</div>
+
+
+<br><br>
+<div id="loginpanel">
+    <span th:text="${title.text}"></span>
+    <span th:if="${#lists.isEmpty(list)}">List is empty</span>
+<table class="table table-dark" th:unless="${#lists.isEmpty(list)}">
+    <tr>
+
+
+
+
+
+
+    </tr>
+    <tr th:each="u:${list}">
+
+        <td >
+            <div>
+                <h5 th:text="${u.username}"></h5>
+                <p th:text="${u.text}"></p>
+
+
+            </div>
+        </td>
+
+
+
+
+    </tr>
+</table>
+<form th:action="@{/post(idd=*{title.id})}" method="post">
+
+
+
+<div>
+    <input type="textarea" name="text" placeholder="text"/>
+</div>
+<input type="submit" value="Dodaj wpis"/>
+</form>
+</div>
+<br><br><Br>
+
+<div>
+    <div th:replace="~{fragments :: footer}"/>
+</div>
+</body>
+</html>

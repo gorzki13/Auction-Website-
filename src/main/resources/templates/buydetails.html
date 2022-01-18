@@ -9,42 +9,40 @@
 </head>
 <body>
 <div th:replace="~{fragments :: nav(param1='login')}"/>
-
-<h1>Dokonałeś zamówienia gratulacje niedługo skontaktuje się z Tobą sprzedawca !</h1>
+<br><br><br>
+<div id="loginpanel">
+<h1>Kupiłeś przedmiot</h1>
 <table class="table table-dark">
     <tr>
-        <th>id</th>
+        <th>przedmiot </th>
         <th>imie</th>
         <th>nazwisko</th>
-        <th>koniec akcji</th>
+
         <th> cena</th>
-        <th>przedmiot </th>
+
 
     </tr>
     <tr>
         <td>
-            <span th:text="${dane.id}"></span><br>
+            <span th:text="${dane.itemname}"></span><br>
+
         </td>
         <td>
             <span th:text="${dane.name}"></span><br>
         </td><td>
         <span th:text="${dane.surname}"></span><br>
     </td>
-        <td>
-            <span th:text="${dane.date}"></span><br>
 
-        </td>
         <td>
             <span th:text="${dane.wallet}"></span><br>
         </td>
-        <td>
-            <span th:text="${dane.itemname}"></span><br>
 
-        </td>
-        <span>/</span>
+        <span></span>
     </tr>
 </table>
+    <button type="submit" class="btn btn-success"><a href="userlist">wróć do aukcji</a></button>
 </div>
+<br><br><br>
 <div th:replace="~{fragments :: footer}"/>
 </body>
 </html>

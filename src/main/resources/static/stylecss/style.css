@@ -1,5 +1,5 @@
 body{
-
+    background-image: url("https://martech.org/wp-content/uploads/2014/09/auction-bid-gavel-money-ss-1920.jpg");
 }
 
 
@@ -32,13 +32,15 @@ header{
 
     padding: 10px 10px 0px 10px;
     bottom: 0;
-    width: auto;
+    width: 100vw;
     height: auto;
     background: darkgray;
     text-align: center;
+    position: fixed;
 
 }
 .center {
+    background-color: mediumturquoise;
     margin: auto;
     width: 50%;
     border: 3px solid green;
@@ -48,4 +50,21 @@ header{
 img{
     max-width: 100%;
     height: auto;
+}
+#searchbox{
+text-align: center;
+   color: palegreen;
+    background: gray;
+}
+.tableitem{
+    width:50vw;
+}
+#loginpanel{
+   margin: auto;
+    text-align: center;
+    background: #3f4b55;
+    width:30vw;
+}
+.hide{
+    display:none;
 }

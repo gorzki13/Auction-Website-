@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -25,7 +27,20 @@ public class UserController {
     public ModelAndView userlist(){
 
 
-        var mav = new ModelAndView( "userlist","list", userrepository.findAll());
+        List<Userid> a=  userrepository.findAll();
+        List<Userid> b=new ArrayList<>();
+        System.out.println(a);
+
+        for(int i=0;i<a.size();i++){
+
+            if(a.get(i).getBuyer()==null){
+
+                b.add(a.get(i));
+            }
+        }
+
+
+        var mav = new ModelAndView( "userlist","list", b);
 
 
         return mav;

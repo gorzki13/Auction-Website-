@@ -8,10 +8,14 @@
 
 </head>
 <body>
-<h1>Dodano zadanie !</h1>
+<div id="loginpanel">
+<h1>SUKCESS</h1>
 <h></h>
 <h1>Twoje konto zostało pomyślnie zarejestrowane </h1>
 
   <h1></h1>
+<form sec:authorize=" !isAuthenticated()" th:action="@{/login}" id="login" th:method="post">
+    <button type="submit" class="btn btn-success" th:href="@{/login}">Zaloguj</button></form>
+</div>
 </body>
 </html>

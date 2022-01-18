@@ -9,9 +9,10 @@
 </head>
 <body>
 <div th:replace="~{fragments :: nav(param1='login')}"/>
-
+<div id="loginpanel">
 <h1>Sprzedaż została zakończona</h1>
-
+    <button class="btn btn-success"><a th:href="@{/myauction}">Wróć do aukcji</a></button>
+</div>
 <div th:replace="~{fragments :: footer}"/>
 </body>
 </html>

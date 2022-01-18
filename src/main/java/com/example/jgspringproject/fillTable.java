@@ -1,13 +1,7 @@
 package com.example.jgspringproject;
 
-import com.example.jgspringproject.models.CategoryData;
-import com.example.jgspringproject.models.Role;
-import com.example.jgspringproject.models.User;
-import com.example.jgspringproject.models.Userid;
-import com.example.jgspringproject.repositories.Categoryrepository;
-import com.example.jgspringproject.repositories.Rolerepository;
-import com.example.jgspringproject.repositories.Userloginrepository;
-import com.example.jgspringproject.repositories.Userrepository;
+import com.example.jgspringproject.models.*;
+import com.example.jgspringproject.repositories.*;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -33,7 +27,10 @@ private Categoryrepository cRepository;
   private Userloginrepository Userloginrepository;
     @Autowired
     private Rolerepository rolerepository;
-
+    @Autowired
+    private Commentsrepository Commentsrepository;
+    @Autowired
+    private Discussionrepository Discussionrepository;
     @Bean
     InitializingBean init() {
 
@@ -76,6 +73,21 @@ private Categoryrepository cRepository;
                 Userloginrepository.save(user);
                 Userloginrepository.save(admin);
                 Userloginrepository.save(test);
+               Discussion d=new Discussion(1,1,"admin","polecam zainteresować się marką xiaomi spory wybór mają");
+                Discussion d2=new Discussion(2,2,"Krzychu12","ewidentnie neato");
+
+                Comments c=new Comments(1,"Telefony komórkowe","jaki telefon do 1000 zł ?");
+                Comments c2=new Comments(2,"Odkurzacz","xiaomi vs neato");
+                List<Discussion> Disclist = new ArrayList<Discussion>();
+               Disclist.add(d);
+                Disclist.add(d2);
+              Discussionrepository.saveAll(Disclist);
+
+                List<Comments> comlist = new ArrayList<Comments>();
+                comlist.add(c);
+                comlist.add(c2);
+
+                Commentsrepository.saveAll(comlist);
             }
 
 

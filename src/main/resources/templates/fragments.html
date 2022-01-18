@@ -13,7 +13,10 @@
     <link rel="stylesheet" href="/stylecss/style.css">
 
 </div>
+<div id="loginpanel" th:fragment="hello" sec:authorize=" isAuthenticated()">
 
+    <h1> Witaj <span sec:authentication="name"/></span> !</h1>
+</div>
 
 
 
@@ -40,17 +43,16 @@
                         <li th:classappend="${param1 eq 'add'}?'active'" class="nav-item" style="padding-left: 15px">
                             <a class="nav-link" th:href="@{userlist/editForm}">dodaj przedmiot</a>
                         </li>
-
+                        <li  sec:authorize=" isAuthenticated()" th:classappend="${param1 eq 'forum'}?'active'" class="nav-item" style="padding-left: 15px">
+                            <a class="nav-link" th:href="@{/forum}">Dyskusja</a>
+                        </li>
                         <form sec:authorize=" !isAuthenticated()" th:action="@{/login}" id="login" th:method="post">
                             <button type="submit" class="btn btn-success" th:href="@{/login}">Zaloguj</button>
                         </form>
                         <form sec:authorize=" isAuthenticated()"  th:action="@{/logout}" id="logout" th:method="post">
                             <button type="submit" class="btn btn-danger" th:href="@{/logout}">Wyloguj</button>
                         </form>
-                       <div sec:authorize=" isAuthenticated()">
 
-                        <h1> Witaj <span sec:authentication="name"/></span> !</h1> 
-                       </div>
 
                     </ul>
 
@@ -63,7 +65,7 @@
 
 
 <div th:fragment="footer">
-<footer class="footer">
+<footer class="footer" >
     © 2021 Platformy programowania Jakub Gorzkiewicz
     <span th:each="role: ${#authentication.getAuthorities()}">
        <span th:text="${role}"/>
